@@ -28,7 +28,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 ## Write a short comment describing this function
 
-## checks whether there is matrix, if not calculated is solution
+## checks whether there is matrix store, if not calculated is solution and store
 ## If the matrix is identical, solution has already calculated is return
 ## if it is not identical, the solution is computed, stores and return
 
