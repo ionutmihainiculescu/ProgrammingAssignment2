@@ -4,21 +4,22 @@
 ## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
-     m <- NULL
-     sl <- NULL
+     if(!exists("m")){
+          m <- NULL
+     }
+     inverse <- NULL
      set <- function(y) {
           x <<- y
-          sl <<- NULL
+          inverse <<- NULL
      }
-     setS <- function(ss){
+     setInverse <- function(ss){
           m <<- x
-          sl <<- ss
-          sl
+          inverse <<- ss
      }
      get <- function() x
      getM <- function() m
-     getSolve <- function() sl
-     list(get = get, getM = getM, getSolve = getSolve, set = set, setS = setS)
+     getInverse <- function() inverse
+     list(get = get, getM = getM, getInverse = getInverse, set = set, setInverse = setInverse)
 
 }
 
@@ -32,17 +33,17 @@ cacheSolve <- function(x, ...) {
      s <- NULL
      if(is.null(m)){
           ss <- solve(d)
-          x$setS(ss)
-          s <- x$getSolve()
+          x$setInverse(ss)
+          s <- x$getInverse()
           s
      }
      else{
           if(identical(d, m)){
-               s <- x$getSolve()
+               s <- x$getInverse()
           }
           else{
-               x$setS(solve(d))
-               s <- x$getSolve()
+               x$setInverse(solve(d))
+               s <- x$getInverse()
           }
      }
      s
