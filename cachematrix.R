@@ -3,11 +3,13 @@
 
 ## Write a short comment describing this function
 
+## stores matrix and matrix inverse
+
 makeCacheMatrix <- function(x = matrix()) {
      if(!exists("m")){
           m <<- NULL
+          inverse <<- NULL
      }
-     inverse <<- NULL
      set <- function(y) {
           x <<- y
           inverse <<- NULL
@@ -25,6 +27,10 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## Write a short comment describing this function
+
+## checks whether there is matrix, if not calculated is solution
+## If the matrix is identical, solution has already calculated is return
+## if it is not identical, the solution is computed, stores and return
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
