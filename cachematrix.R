@@ -5,9 +5,9 @@
 
 makeCacheMatrix <- function(x = matrix()) {
      if(!exists("m")){
-          m <- NULL
+          m <<- NULL
      }
-     inverse <- NULL
+     inverse <<- NULL
      set <- function(y) {
           x <<- y
           inverse <<- NULL
@@ -35,7 +35,6 @@ cacheSolve <- function(x, ...) {
           ss <- solve(d)
           x$setInverse(ss)
           s <- x$getInverse()
-          s
      }
      else{
           if(identical(d, m)){
